@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@config '../../../tailwind.config.mjs';
+
+@custom-variant dark (&:is([data-theme='dark'] *));
+@custom-variant sm (@media (width >= theme(--breakpoint-sm)));
+@custom-variant md (@media (width >= theme(--breakpoint-md)));
+@custom-variant lg (@media (width >= theme(--breakpoint-lg)));
+@custom-variant xl (@media (width >= theme(--breakpoint-xl)));
+@custom-variant 2xl (@media (width >= theme(--breakpoint-2xl)));
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+}
+
+@plugin "@tailwindcss/typography";
+
+@source inline("lg:col-span-4");
+@source inline("lg:col-span-6");
+@source inline("lg:col-span-8");
+@source inline("lg:col-span-12");
+@source inline("border-border");
+@source inline("bg-card");
+@source inline("border-error");
+@source inline("bg-error/30");
+@source inline("border-success");
+@source inline("bg-success/30");
+@source inline("border-warning");
+@source inline("bg-warning/30");
+
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 86rem;
+  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans);
+}
+
+@layer utilities {
+  .container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @variant sm {
+    .container {
+      max-width: var(--breakpoint-sm);
+    }
+  }
+
+  @variant md {
+    .container {
+      max-width: var(--breakpoint-md);
+      padding-inline: 2rem;
+    }
+  }
+
+  @variant lg {
+    .container {
+      max-width: var(--breakpoint-lg);
+    }
+  }
+
+  @variant xl {
+    .container {
+      max-width: var(--breakpoint-xl);
+    }
+  }
+
+  @variant 2xl {
+    .container {
+      max-width: var(--breakpoint-2xl);
+    }
+  }
+}
+
+/* ── Kolton Oxshire Ministries — Brand Tokens ─────────────────────────── */
+:root {
+  /* Bold minimal editorial: cream background, ink black type, crimson accent */
+  --background: hsl(38 38% 94%);
+  --foreground: hsl(0 0% 8%);
+
+  --card: hsl(38 30% 90%);
+  --card-foreground: hsl(0 0% 8%);
+
+  --popover: hsl(38 38% 94%);
+  --popover-foreground: hsl(0 0% 8%);
+
+  --primary: hsl(0 0% 8%);
+  --primary-foreground: hsl(38 38% 94%);
+
+  --secondary: hsl(38 25% 88%);
+  --secondary-foreground: hsl(0 0% 8%);
+
+  --muted: hsl(38 20% 86%);
+  --muted-foreground: hsl(0 0% 30%);
+
+  /* Bold crimson accent */
+  --accent: hsl(4 80% 50%);
+  --accent-foreground: hsl(38 38% 94%);
+
+  --destructive: hsl(4 80% 50%);
+  --destructive-foreground: hsl(38 38% 94%);
+
+  --border: hsl(0 0% 8% / 0.12);
+  --input: hsl(0 0% 8% / 0.15);
+  --ring: hsl(4 80% 50%);
+  --radius: 0;
+
+  /* Brand-specific tokens */
+  --gold: hsl(43 88% 50%);
+  --gold-foreground: hsl(0 0% 8%);
+  --cream: hsl(38 38% 94%);
+  --ink: hsl(0 0% 8%);
+  --patriot-red: hsl(4 80% 50%);
+
+  --sidebar: hsl(38 38% 94%);
+  --sidebar-foreground: hsl(0 0% 8%);
+  --sidebar-primary: hsl(0 0% 8%);
+  --sidebar-primary-foreground: hsl(38 38% 94%);
+  --sidebar-accent: hsl(38 25% 88%);
+  --sidebar-accent-foreground: hsl(0 0% 8%);
+  --sidebar-border: hsl(0 0% 8% / 0.12);
+  --sidebar-ring: hsl(4 80% 50%);
+
+  --success: hsl(142 70% 45%);
+  --warning: hsl(43 88% 50%);
+  --error: hsl(4 80% 50%);
+}
+
+/* No dark mode on the public site — Kolton brand is always light */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-[100vh] antialiased;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'ss01', 'ss02';
+  }
+}
+
+/* ── Kolton Brand Utilities ───────────────────────────────────────────── */
+@layer utilities {
+  .font-display  { font-family: 'Inter', sans-serif; }
+  .font-body     { font-family: 'Inter', sans-serif; }
+  .font-impact   { font-family: 'Inter', sans-serif; font-weight: 900; }
+
+  .text-cream    { color: var(--cream); }
+  .bg-cream      { background-color: var(--cream); }
+  .text-ink      { color: var(--ink); }
+  .bg-ink        { background-color: var(--ink); }
+  .text-accent   { color: var(--accent); }
+  .bg-accent     { background-color: var(--accent); }
+  .text-accent-foreground { color: var(--accent-foreground); }
+  .bg-accent-foreground   { background-color: var(--accent-foreground); }
+  .text-patriot-red { color: var(--patriot-red); }
+
+  .gold-glow {
+    box-shadow: 0 0 0 1px hsl(4 80% 50% / 0.5), 0 10px 40px -10px hsl(4 80% 50% / 0.3);
+  }
+
+  .text-shadow-hero {
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.85);
+  }
+
+  .display-xl {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 11vw, 10rem);
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+
+  .rule-divider {
+    height: 1px;
+    background: hsl(0 0% 8% / 0.2);
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
