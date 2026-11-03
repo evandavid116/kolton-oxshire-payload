@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Cross, BookOpen } from 'lucide-react'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -84,6 +85,25 @@ export default async function WhatWeBelievePage() {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 border border-border bg-card rounded-lg p-8 sm:p-10 text-center">
+            <p className="font-body text-sm font-semibold tracking-[0.3em] uppercase text-accent mb-3">
+              Why we confess it
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              The resurrection is <span className="text-accent">real</span>
+            </h2>
+            <p className="font-body text-foreground/70 text-lg max-w-2xl mx-auto mb-8">
+              We believe Jesus was crucified, buried, and raised. Three historical facts behind that
+              confession — and the videos that go with them — are gathered on one page.
+            </p>
+            <Link
+              href="/resurrection"
+              className="inline-flex items-center justify-center px-10 py-4 bg-accent text-accent-foreground font-body font-bold text-xs uppercase tracking-[0.25em] hover:brightness-110 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+              Read the evidence
+            </Link>
           </div>
         </div>
       </section>

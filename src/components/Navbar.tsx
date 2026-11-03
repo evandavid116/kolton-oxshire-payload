@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'About', href: '/#about' },
   { label: 'Preaching', href: '/#preaching' },
   { label: 'What We Believe', href: '/what-we-believe' },
+  { label: 'Resurrection', href: '/resurrection' },
   { label: 'I Just Got Saved', href: '/i-just-got-saved' },
   { label: 'Book Kolton', href: '/book-to-speak' },
   { label: 'Partner', href: '/partner' },
@@ -42,7 +43,7 @@ export default function Navbar() {
           Kolton <span className="italic text-accent">Oxshire</span>
         </Link>
 
-        <ul className="hidden lg:flex items-center gap-6">
+        <ul className="hidden xl:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -57,7 +58,7 @@ export default function Navbar() {
         </ul>
 
         <button
-          className="lg:hidden text-foreground"
+          className="xl:hidden text-foreground"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -66,7 +67,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-md border-b border-border">
+        <div className="xl:hidden bg-background/95 backdrop-blur-md border-b border-border">
           <ul className="flex flex-col items-center gap-6 py-8">
             {navLinks.map((link) => (
               <li key={link.href}>
