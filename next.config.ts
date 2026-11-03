@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
       {
         pathname: '/api/media/file/**',
       },
+      {
+        pathname: '/assets/resurrection/**',
+        search: '',
+      },
     ],
     qualities: [100],
     remotePatterns: [
