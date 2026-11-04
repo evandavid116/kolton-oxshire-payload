@@ -1,0 +1,16 @@
+{
+  "scanned": "2026-11-04",
+  "findings": {
+    "fonts": "Inter loaded from Google Fonts in src/app/(frontend)/globals.css; Geist named in @theme but the public pages set Inter on body and headings",
+    "palette": "HSL custom properties on :root in globals.css: cream paper, near-black ink, crimson accent, a gold token",
+    "motion": "CSS keyframes fadeUp in globals.css; no motion library",
+    "spacing": "Tailwind v4 defaults plus a .container utility; brand sections use raw py-24",
+    "framework": "Next.js 16 App Router, Payload CMS 3, Tailwind 4"
+  },
+  "preserve": [
+    "The live routes, their copy, their photographs, and their Payload wiring stay as they are"
+  ],
+  "introduce": [
+    "Three home-page prototypes under /design-options, each with its own stylesheet"
+  ]
+}

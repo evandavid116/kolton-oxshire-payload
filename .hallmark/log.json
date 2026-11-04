@@ -1,0 +1,92 @@
+[
+ {
+  "mode": "build",
+  "shape": "Conversational FAQ",
+  "theme": "Grid",
+  "axes": "light/grotesk-sans/cool",
+  "hero": "Index",
+  "nav": "floating bar",
+  "footer": "colophon",
+  "imagery": "photographs",
+  "entry": "/design-options/c",
+  "fingerprint": "faq|index|floating-bar|colophon|field|listen",
+  "sections": [
+   "Hero index",
+   "About",
+   "Preaching",
+   "Ultramarine statement",
+   "Teaching rows",
+   "Giving",
+   "Colophon"
+  ],
+  "signature": "red mark and gospel field",
+  "prompt": "Christian ministry home page for Kolton Oxshire",
+  "genre": "editorial",
+  "job": "listen",
+  "waived": [],
+  "photos": [
+   "kolton-portrait"
+  ],
+  "date": "2026-11-04"
+ },
+ {
+  "mode": "build",
+  "shape": "Feature Stack",
+  "theme": "Formwork",
+  "axes": "mid/display-condensed/warm",
+  "hero": "Index",
+  "nav": "masthead",
+  "footer": "letter close",
+  "imagery": "photographs",
+  "entry": "/design-options/b",
+  "fingerprint": "feature-stack|index|masthead|letter-close|cast|listen",
+  "sections": [
+   "Hero index",
+   "Pinned about",
+   "Preaching",
+   "Ink statement",
+   "Teaching pour",
+   "Giving plate",
+   "Footer"
+  ],
+  "signature": "name cast as a site index",
+  "prompt": "Christian ministry home page for Kolton Oxshire",
+  "genre": "editorial",
+  "job": "listen",
+  "waived": [],
+  "photos": [
+   "kolton-portrait"
+  ],
+  "date": "2026-11-04"
+ },
+ {
+  "mode": "build",
+  "shape": "Letter",
+  "theme": "Atelier",
+  "axes": "light/roman-serif/cool",
+  "hero": "Ledge",
+  "nav": "banner over a bar",
+  "footer": "statement",
+  "imagery": "photographs",
+  "entry": "/design-options/a",
+  "fingerprint": "letter|ledge|banner|statement|portrait|listen",
+  "sections": [
+   "Hero ledge",
+   "Letter about",
+   "Preaching",
+   "Teaching rows",
+   "Giving card",
+   "Footer statement"
+  ],
+  "signature": "Kolton portrait print",
+  "prompt": "Christian ministry home page for Kolton Oxshire",
+  "genre": "editorial",
+  "job": "listen",
+  "waived": [],
+  "photos": [
+   "kolton-portrait",
+   "lion-eagle-flag"
+  ],
+  "date": "2026-11-04"
+ }
+]
