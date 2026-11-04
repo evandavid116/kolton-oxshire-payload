@@ -9,18 +9,18 @@ export const metadata: Metadata = {
 const options = [
   {
     href: '/design-options/a',
-    name: 'Atelier',
-    line: 'A quiet letter. Warm paper, a light serif, and Kolton’s portrait above his own sentence.',
+    name: 'Broadside',
+    line: 'A woodtype sale bill. Buff paper, tall capitals, one vermilion line, his portrait in a printer’s frame.',
   },
   {
     href: '/design-options/b',
-    name: 'Formwork',
-    line: 'A heavy site board. Concrete grey, condensed capitals, one orange button, photographs in black and white.',
+    name: 'Manifesto',
+    line: 'A night crusade sheet. Black ground, the name enormous, the surname in the one red.',
   },
   {
     href: '/design-options/c',
-    name: 'Grid',
-    line: 'A Swiss sheet. White paper, a plain grotesk, an ultramarine field for the gospel line, and one red mark.',
+    name: 'Paste-up',
+    line: 'A kraft street flyer. Photocopied portrait on a white sheet, and a fluorescent button to book him.',
   },
 ]
 

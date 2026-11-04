@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { ministry as m, navFor } from '../content'
 
 export const metadata: Metadata = {
-  title: 'Atelier',
-  description: 'A quiet letter for the Kolton Oxshire Ministries home page. Proposal only.',
+  title: 'Broadside',
+  description: 'A woodtype revival bill for the Kolton Oxshire Ministries home page. Proposal only.',
   robots: { index: false, follow: false },
 }
 
@@ -12,47 +12,34 @@ const nav = navFor('/design-options/a')
 export default function OptionA() {
   return (
     <div data-theme="a">
-      <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=sentient@300,400&display=swap" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400&display=swap" />
-      <link rel="stylesheet" href="/design/a.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Bevan&family=Archivo+Narrow:wght@400;500;600&display=swap" />
+      <link rel="stylesheet" href="/design/a/page.css" />
       <div className="top">
-        <header>
-          <p className="banner">{m.banner}</p>
-          <div className="bar">
-            <a className="wordmark" href="/design-options/a">
-              {m.name}
-            </a>
-            <details className="menu">
-              <summary>Menu</summary>
-              <ul className="links">
-                {nav.map((item) => (
-                  <li key={item.href}>
-                    <a href={item.href}>{item.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          </div>
+        <header className="slab">
+          <a className="wordmark" href="/design-options/a">Kolton</a>
+          <details className="menu">
+            <summary>Menu</summary>
+            <ul className="links">
+              {nav.map((item) => (
+                <li key={item.href}><a href={item.href}>{item.label}</a></li>
+              ))}
+            </ul>
+          </details>
         </header>
         <section className="hero" id="home">
           <div className="stage">
-            <div className="intro">
+            <div className="nameblock">
               <h1>
-                Kolton
-                <br />
-                Oxshire
+                <span className="fit fit-k">Kolton</span>
+                <span className="fit fit-o">Oxshire</span>
               </h1>
-              <p className="lede">{m.quote}</p>
+              <p className="shout">{m.quote}</p>
               <div className="actions">
-                <a className="btn" href="/book-to-speak">
-                  Book Kolton
-                </a>
-                <a className="quiet" href="/partner">
-                  Partner with us
-                </a>
+                <a className="btn" href="/book-to-speak">Book Kolton</a>
+                <a className="btn btn-frame" href="/partner">Partner with us</a>
               </div>
             </div>
-            <figure className="portrait">
+            <figure className="plate">
               <img src={m.portrait} alt={m.portraitAlt} fetchPriority="high" />
             </figure>
           </div>
@@ -60,20 +47,23 @@ export default function OptionA() {
       </div>
 
       <section className="about" id="about">
-        <div className="wrap">
-          <h2>{m.aboutHeading}</h2>
-          <p>{m.description}</p>
-          <p>{m.about[0]}</p>
-        </div>
-        <figure className="mat">
-          <div className="mat-inner">
+        <div className="wrap split">
+          <figure className="plate">
             <img src={m.lion} alt={m.lionAlt} />
+            <figcaption>Lion of Judah, bald eagle, and the flag.</figcaption>
+          </figure>
+          <div>
+            <h2>{m.aboutHeading}</h2>
+            <p>{m.description}</p>
           </div>
-          <figcaption className="wrap">{m.gospel}</figcaption>
-        </figure>
-        <div className="wrap after-mat">
-          <p>{m.about[1]}</p>
-          <p>{m.about[2]}</p>
+        </div>
+        <div className="wrap flow">
+            <p>{m.about[0]}</p>
+            <p>{m.about[1]}</p>
+            <p>{m.about[2]}</p>
+        </div>
+        <div className="wrap">
+          <p className="gospel">{m.gospel}</p>
         </div>
       </section>
 
@@ -84,6 +74,8 @@ export default function OptionA() {
           <div className="videos">
             {m.videos.map((video) => (
               <article key={video.embedId}>
+                <h3>{video.title}</h3>
+                <img className="still" src={`https://i.ytimg.com/vi/${video.embedId}/hqdefault.jpg`} alt="" />
                 <iframe
                   src={`https://www.youtube.com/embed/${video.embedId}`}
                   title={video.title}
@@ -91,7 +83,6 @@ export default function OptionA() {
                   allowFullScreen
                   loading="lazy"
                 />
-                <h3>{video.title}</h3>
               </article>
             ))}
           </div>
@@ -103,7 +94,7 @@ export default function OptionA() {
           <h2>{m.teachingHeading}</h2>
           <p>{m.teachingLede}</p>
           <p className="harvest">{m.harvest}</p>
-          <ul className="rows">
+          <ul className="bill">
             {m.teaching.map((item) => (
               <li key={item.title}>
                 <h3>{item.title}</h3>
@@ -118,39 +109,29 @@ export default function OptionA() {
         <div className="wrap">
           <h2>{m.givingHeading}</h2>
           <p>{m.givingLede}</p>
-          <div className="card">
-            <ul className="rows">
-              {m.giving.map((item) => (
-                <li key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </li>
-              ))}
-            </ul>
-            <a className="btn" href="/partner">
-              Give now
-            </a>
-          </div>
+          <ul className="bill">
+            {m.giving.map((item) => (
+              <li key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+          <a className="btn" href="/partner">Give now</a>
         </div>
       </section>
 
       <footer className="foot" id="contact">
         <div className="wrap">
           <h2>{m.contactHeading}</h2>
-          <p className="statement">{m.contactSubtext}</p>
-          <a className="mail" href={`mailto:${m.email}`}>
-            {m.email}
-          </a>
+          <p>{m.contactSubtext}</p>
+          <a className="mail" href={`mailto:${m.email}`}>{m.email}</a>
           <ul className="links foot-links">
             {nav.map((item) => (
-              <li key={item.label}>
-                <a href={item.href}>{item.label}</a>
-              </li>
+              <li key={item.label}><a href={item.href}>{item.label}</a></li>
             ))}
           </ul>
-          <p className="colophon">
-            {m.ministryName}. {new Date().getFullYear()}.
-          </p>
+          <p className="colophon">{m.ministryName}. {new Date().getFullYear()}.</p>
         </div>
       </footer>
     </div>
