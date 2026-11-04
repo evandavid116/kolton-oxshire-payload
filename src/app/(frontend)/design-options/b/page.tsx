@@ -33,9 +33,16 @@ export default function OptionB() {
           </div>
         </header>
         <section className="hero" id="home">
-          <div className="wrap hero-grid">
+          <div className="stage">
+            <figure className="portrait">
+              <img src={m.portrait} alt={m.portraitAlt} fetchPriority="high" />
+            </figure>
             <div className="intro">
-              <h1>{m.name}</h1>
+              <h1>
+                Kolton
+                <br />
+                Oxshire
+              </h1>
               <p className="lede">{m.quote}</p>
               <div className="actions">
                 <a className="btn" href="/book-to-speak">
@@ -46,20 +53,6 @@ export default function OptionB() {
                 </a>
               </div>
             </div>
-            <ol className="index">
-              <li>
-                <a href="#about">{m.aboutHeading}</a>
-              </li>
-              <li>
-                <a href="#preaching">{m.preachingHeading}</a>
-              </li>
-              <li>
-                <a href="#teaching">{m.teachingHeading}</a>
-              </li>
-              <li>
-                <a href="#giving">{m.givingHeading}</a>
-              </li>
-            </ol>
           </div>
         </section>
       </div>

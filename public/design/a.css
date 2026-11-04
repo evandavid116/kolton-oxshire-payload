@@ -1,5 +1,5 @@
 /* Hallmark · shape: Letter · genre: editorial · theme: Atelier (deal 1/3, seed christian-ministry-personal-evangelist-4049·e4b1ed5e·2026-11-04·r0) · job: listen · draw: ate6
- * hero: Ledge · nav: banner over a bar · footer: statement · imagery: photographs · signature: the portrait print of Kolton
+ * hero: Stage · nav: banner over a bar · footer: statement · imagery: photographs · signature: the portrait print of Kolton
  * axes: light/roman-serif/cool · posture: restrained · contrast: pass · fold: pass · copy: verbatim · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H5 E4 S5 R4 V5 · weakest: P, a ministry page can hide the person; the portrait and his own sentence lead */
 
@@ -57,7 +57,7 @@ html, body { overflow-x: clip; }
   font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05;
   overflow-wrap: break-word; min-width: 0; text-wrap: balance; text-transform: none;
 }
-[data-theme="a"] h1 { max-width: 12ch; font-size: var(--text-display); }
+[data-theme="a"] h1 { max-width: 8ch; font-size: clamp(3.4rem, 6.4vw, 6.4rem); }
 [data-theme="a"] h2 { max-width: 18ch; font-size: var(--text-section); }
 [data-theme="a"] h3 { max-width: 28ch; font-size: var(--text-title); line-height: 1.2; font-weight: 400; }
 [data-theme="a"] p { margin: 0; max-width: 65ch; text-wrap: pretty; }
@@ -65,7 +65,10 @@ html, body { overflow-x: clip; }
 [data-theme="a"] .wrap { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
 [data-theme="a"] .lede { font-size: var(--text-lead); line-height: 1.45; max-width: 36ch; color: var(--color-ink); }
 
-[data-theme="a"] .top { height: 100dvh; display: flex; flex-direction: column; }
+[data-theme="a"] .top { min-height: 100dvh; display: flex; flex-direction: column; }
+@media (min-width: 60rem) {
+  [data-theme="a"] .top { height: 100dvh; }
+}
 [data-theme="a"] .banner {
   margin: 0; max-width: none; padding: var(--space-sm) var(--gutter);
   background: var(--color-paper-2); color: var(--color-ink); font-size: var(--text-sm);
@@ -105,10 +108,27 @@ html, body { overflow-x: clip; }
   [data-theme="a"] .bar-book { display: inline-flex; }
 }
 
-[data-theme="a"] .hero { flex: 1; min-height: 0; display: flex; flex-direction: column; }
-[data-theme="a"] .hero-fig { flex: 1 1 0; min-height: 0; margin: 0; overflow: hidden; }
-[data-theme="a"] .hero-fig img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; filter: sepia(0.12) saturate(0.9) contrast(0.94); }
-[data-theme="a"] .ledge-copy { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+[data-theme="a"] .hero { flex: 1; min-height: 0; display: flex; align-items: center; }
+[data-theme="a"] .stage {
+  width: 100%; max-width: var(--container); margin-inline: auto; padding: var(--space-lg) var(--gutter);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); align-items: center;
+}
+@media (min-width: 60rem) {
+  [data-theme="a"] .stage {
+    grid-template-columns: max-content minmax(16rem, 36rem);
+    justify-content: center;
+    gap: var(--space-2xl); height: 100%;
+  }
+}
+[data-theme="a"] .portrait { margin: 0; min-width: 0; justify-self: center; background: var(--color-card); padding: var(--space-xs); box-shadow: var(--shadow-card); }
+[data-theme="a"] .portrait img {
+  width: min(100%, 26rem); height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 42%;
+  filter: sepia(0.08) saturate(0.92) contrast(0.96); display: block;
+}
+@media (min-width: 60rem) {
+  [data-theme="a"] .portrait { justify-self: start; }
+  [data-theme="a"] .portrait img { width: min(100%, 36rem, 58dvh); }
+}
 [data-theme="a"] .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); margin-top: var(--space-md); }
 
 [data-theme="a"] .btn {

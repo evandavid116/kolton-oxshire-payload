@@ -9,13 +9,6 @@ export const metadata: Metadata = {
 
 const nav = navFor('/design-options/c')
 
-const index = [
-  { href: '#about', label: m.aboutHeading },
-  { href: '#preaching', label: m.preachingHeading },
-  { href: '#teaching', label: m.teachingHeading },
-  { href: '#giving', label: m.givingHeading },
-]
-
 export default function OptionC() {
   return (
     <div data-theme="c">
@@ -41,24 +34,26 @@ export default function OptionC() {
           </details>
         </header>
         <section className="hero" id="home">
-          <div className="wrap">
-            <h1>{m.name}</h1>
-            <p className="lede">{m.quote}</p>
-            <div className="actions">
-              <a className="btn" href="/book-to-speak">
-                Book Kolton
-              </a>
-              <a className="quiet" href="/partner">
-                Partner with us
-              </a>
+          <div className="stage">
+            <h1>
+              Kolton
+              <br />
+              Oxshire
+            </h1>
+            <figure className="square">
+              <img src={m.portrait} alt={m.portraitAlt} fetchPriority="high" />
+            </figure>
+            <div className="intro">
+              <p className="lede">{m.quote}</p>
+              <div className="actions">
+                <a className="btn" href="/book-to-speak">
+                  Book Kolton
+                </a>
+                <a className="quiet" href="/partner">
+                  Partner with us
+                </a>
+              </div>
             </div>
-            <ol className="index">
-              {index.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href}>{item.label}</a>
-                </li>
-              ))}
-            </ol>
           </div>
         </section>
       </div>

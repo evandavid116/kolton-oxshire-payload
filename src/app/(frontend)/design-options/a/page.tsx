@@ -35,24 +35,26 @@ export default function OptionA() {
           </div>
         </header>
         <section className="hero" id="home">
-          <figure className="hero-fig">
-            <img src={m.portrait} alt={m.portraitAlt} fetchPriority="high" />
-          </figure>
-          <div className="ledge-copy wrap">
-            <h1>
-              Kolton
-              <br />
-              Oxshire
-            </h1>
-            <p className="lede">{m.quote}</p>
-            <div className="actions">
-              <a className="btn" href="/book-to-speak">
-                Book Kolton
-              </a>
-              <a className="quiet" href="/partner">
-                Partner with us
-              </a>
+          <div className="stage">
+            <div className="intro">
+              <h1>
+                Kolton
+                <br />
+                Oxshire
+              </h1>
+              <p className="lede">{m.quote}</p>
+              <div className="actions">
+                <a className="btn" href="/book-to-speak">
+                  Book Kolton
+                </a>
+                <a className="quiet" href="/partner">
+                  Partner with us
+                </a>
+              </div>
             </div>
+            <figure className="portrait">
+              <img src={m.portrait} alt={m.portraitAlt} fetchPriority="high" />
+            </figure>
           </div>
         </section>
       </div>

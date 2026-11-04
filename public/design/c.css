@@ -1,5 +1,5 @@
 /* Hallmark · shape: Conversational FAQ · genre: editorial · theme: Grid (deal 3/3, seed christian-ministry-personal-evangelist-4049·e4b1ed5e·2026-11-04·r0) · job: listen · draw: gri5
- * hero: Index · nav: floating bar · footer: colophon · imagery: photographs · signature: the name beside a red mark, scripture on an ultramarine field
+ * hero: Stage · nav: floating bar · footer: colophon · imagery: photographs · signature: the name beside a red mark, scripture on an ultramarine field
  * axes: light/grotesk-sans/cool · posture: full-palette · contrast: pass · fold: pass · copy: verbatim · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H5 E4 S4 R5 V5 · weakest: S, a swiss sheet can belong to any institution; his sentence and the gospel line are the only large type */
 
@@ -57,7 +57,7 @@ html, body { overflow-x: clip; }
   font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.02;
   overflow-wrap: break-word; min-width: 0; text-wrap: balance; text-transform: none; text-align: start;
 }
-[data-theme="c"] h1 { max-width: 14ch; font-size: var(--text-title); }
+[data-theme="c"] h1 { max-width: 10ch; font-size: clamp(3.8rem, 7.4vw, 7.2rem); line-height: 0.94; }
 [data-theme="c"] h2 { max-width: 16ch; font-size: var(--text-section); }
 [data-theme="c"] h3 { max-width: 24ch; font-size: var(--text-title); line-height: 1.15; }
 [data-theme="c"] p { margin: 0; max-width: 62ch; text-wrap: pretty; }
@@ -66,6 +66,9 @@ html, body { overflow-x: clip; }
 [data-theme="c"] .lede { font-size: var(--text-lead); line-height: 1.45; max-width: 34ch; }
 
 [data-theme="c"] .top { min-height: 100dvh; display: flex; flex-direction: column; padding-top: var(--space-md); }
+@media (min-width: 60rem) {
+  [data-theme="c"] .top { height: 100dvh; }
+}
 [data-theme="c"] .float {
   position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
   width: calc(100% - (2 * var(--gutter))); max-width: var(--container); margin-inline: auto;
@@ -99,19 +102,33 @@ html, body { overflow-x: clip; }
   [data-theme="c"] .menu:not([open]) .links, [data-theme="c"] .menu .links { display: flex; flex-wrap: nowrap; }
 }
 
-[data-theme="c"] .hero { flex: 1; min-height: 0; display: flex; flex-direction: column; padding-top: var(--space-xl); padding-bottom: var(--space-lg); }
-[data-theme="c"] .hero .wrap { flex: 1; display: flex; flex-direction: column; }
-[data-theme="c"] .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); margin-top: var(--space-lg); }
-[data-theme="c"] .index { list-style: none; margin: auto 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); }
+[data-theme="c"] .hero { flex: 1; min-height: 0; display: flex; align-items: center; }
+[data-theme="c"] .stage {
+  width: 100%; max-width: var(--container); margin-inline: auto; padding: var(--space-lg) var(--gutter);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); align-items: center;
+}
+[data-theme="c"] .intro { display: flex; flex-direction: column; gap: var(--space-lg); }
 @media (min-width: 60rem) {
-  [data-theme="c"] .index { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  [data-theme="c"] .stage {
+    height: 100%;
+    grid-template-columns: max-content minmax(16rem, 34rem);
+    justify-content: center;
+    column-gap: var(--space-2xl);
+    align-items: center;
+  }
+  [data-theme="c"] .stage h1 { grid-column: 1; grid-row: 1; align-self: end; }
+  [data-theme="c"] .square { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  [data-theme="c"] .intro { grid-column: 1; grid-row: 2; align-self: start; }
 }
-[data-theme="c"] .index a {
-  display: block; padding-block: var(--space-sm); text-decoration: none; color: var(--color-ink);
-  font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 3.4vw, 3rem);
-  letter-spacing: var(--tracking-display); line-height: 1.02; white-space: nowrap;
+[data-theme="c"] .square { margin: 0; min-width: 0; background: var(--color-paper-2); justify-self: center; }
+[data-theme="c"] .square img {
+  width: min(100%, 22rem); height: auto; aspect-ratio: 1; object-fit: cover; object-position: center 24%;
+  filter: grayscale(1) contrast(1.15); mix-blend-mode: multiply; display: block;
 }
-[data-theme="c"] .index a:hover { color: var(--color-mark); }
+@media (min-width: 60rem) {
+  [data-theme="c"] .square { justify-self: start; }
+  [data-theme="c"] .square img { width: min(100%, 68dvh); }
+}
 
 [data-theme="c"] .btn {
   display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 var(--space-lg);

@@ -1,5 +1,5 @@
 /* Hallmark · shape: Feature Stack · genre: editorial · theme: Formwork (deal 2/3, seed christian-ministry-personal-evangelist-4049·e4b1ed5e·2026-11-04·r0) · job: listen · draw: for6
- * hero: Index · nav: masthead · footer: letter close · imagery: photographs · signature: the name cast as a site index · formwork: cast
+ * hero: Stage · nav: masthead · footer: letter close · imagery: photographs · signature: the name cast beside his portrait · formwork: cast
  * axes: mid/display-condensed/warm · posture: restrained · contrast: pass · fold: pass · copy: verbatim · v2.0.0 */
 /* Hallmark · pre-emit critique: P5 H5 E4 S4 R4 V5 · weakest: S, concrete could belong to a job site; the preaching titles and his sentence are set in the pour */
 
@@ -58,7 +58,7 @@ html, body { overflow-x: clip; }
   font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05;
   overflow-wrap: break-word; min-width: 0; text-wrap: balance; text-transform: uppercase;
 }
-[data-theme="b"] h1 { max-width: 16ch; font-size: var(--text-title); }
+[data-theme="b"] h1 { max-width: 9ch; font-size: clamp(3.6rem, 7vw, 7rem); line-height: 1.02; }
 [data-theme="b"] h2 { max-width: 16ch; font-size: var(--text-section); }
 [data-theme="b"] h3 { max-width: 22ch; font-size: var(--text-title); line-height: 1.05; }
 [data-theme="b"] p { margin: 0; max-width: 65ch; text-wrap: pretty; }
@@ -101,23 +101,25 @@ html, body { overflow-x: clip; }
   [data-theme="b"] .menu:not([open]) .links, [data-theme="b"] .menu .links { display: flex; flex-wrap: nowrap; }
 }
 
-[data-theme="b"] .hero { flex: 1; min-height: 0; display: flex; flex-direction: column; padding-block: var(--space-md); }
-[data-theme="b"] .hero-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); align-items: stretch; }
+[data-theme="b"] .hero { flex: 1; min-height: 0; display: flex; align-items: center; }
+[data-theme="b"] .stage {
+  width: 100%; max-width: var(--container); margin-inline: auto; padding: var(--space-lg) var(--gutter);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); align-items: center;
+}
 @media (min-width: 60rem) {
-  [data-theme="b"] .hero-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-2xl); }
+  [data-theme="b"] .stage {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--space-2xl); height: 100%;
+  }
 }
-[data-theme="b"] .index { list-style: none; margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); display: flex; flex-direction: column; min-height: 0; }
+[data-theme="b"] .portrait { margin: 0; min-width: 0; outline: 2px solid var(--color-ink); outline-offset: -2px; }
+[data-theme="b"] .portrait img {
+  width: min(100%, 26rem); height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 40%;
+  filter: grayscale(1) contrast(1.28) brightness(1.05); display: block;
+}
 @media (min-width: 60rem) {
-  [data-theme="b"] .index { height: 100%; }
+  [data-theme="b"] .portrait img { width: min(100%, 32rem, 58dvh); }
 }
-[data-theme="b"] .index li { border-bottom: var(--rule-hair) solid var(--color-ink); display: flex; flex: 1; min-width: 0; }
-[data-theme="b"] .index a {
-  display: flex; align-items: flex-end; flex: 1; min-height: 52px; padding-block: var(--space-sm);
-  font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 3.4vw, 2.75rem);
-  line-height: 1.05; letter-spacing: var(--tracking-display); text-transform: uppercase;
-  text-decoration: none; color: var(--color-ink); white-space: nowrap;
-}
-[data-theme="b"] .index a:hover { color: var(--color-accent-deep); }
 [data-theme="b"] .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); margin-top: var(--space-lg); }
 
 [data-theme="b"] .btn {
