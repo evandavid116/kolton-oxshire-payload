@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { ministry as m, navFor } from '../content'
 
 export const metadata: Metadata = {
@@ -16,15 +17,15 @@ export default function OptionA() {
       <link rel="stylesheet" href="/design/a/page.css" />
       <div className="top">
         <header className="slab">
-          <a className="wordmark" href="/design-options/a">Kolton</a>
+          <Link className="wordmark" href="/design-options/a">Kolton</Link>
           <details className="menu">
             <summary>Menu</summary>
-            <ul className="links">
-              {nav.map((item) => (
-                <li key={item.href}><a href={item.href}>{item.label}</a></li>
-              ))}
-            </ul>
           </details>
+          <ul className="links">
+            {nav.map((item) => (
+              <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
+            ))}
+          </ul>
         </header>
         <section className="hero" id="home">
           <div className="stage">
@@ -35,8 +36,8 @@ export default function OptionA() {
               </h1>
               <p className="shout">{m.quote}</p>
               <div className="actions">
-                <a className="btn" href="/book-to-speak">Book Kolton</a>
-                <a className="btn btn-frame" href="/partner">Partner with us</a>
+                <Link className="btn" href="/book-to-speak">Book Kolton</Link>
+                <Link className="btn btn-frame" href="/partner">Partner with us</Link>
               </div>
             </div>
             <figure className="plate">
@@ -75,7 +76,7 @@ export default function OptionA() {
             {m.videos.map((video) => (
               <article key={video.embedId}>
                 <h3>{video.title}</h3>
-                <img className="still" src={`https://i.ytimg.com/vi/${video.embedId}/hqdefault.jpg`} alt="" />
+                <img className="still" src={`https://i.ytimg.com/vi/${video.embedId}/hqdefault.jpg`} alt={`Still from ${video.title}`} />
                 <iframe
                   src={`https://www.youtube.com/embed/${video.embedId}`}
                   title={video.title}
@@ -117,7 +118,7 @@ export default function OptionA() {
               </li>
             ))}
           </ul>
-          <a className="btn" href="/partner">Give now</a>
+          <Link className="btn" href="/partner">Give now</Link>
         </div>
       </section>
 
@@ -126,9 +127,12 @@ export default function OptionA() {
           <h2>{m.contactHeading}</h2>
           <p>{m.contactSubtext}</p>
           <a className="mail" href={`mailto:${m.email}`}>{m.email}</a>
+          <div className="actions">
+            <Link className="btn" href="/book-to-speak">Book Kolton</Link>
+          </div>
           <ul className="links foot-links">
             {nav.map((item) => (
-              <li key={item.label}><a href={item.href}>{item.label}</a></li>
+              <li key={item.label}><Link href={item.href}>{item.label}</Link></li>
             ))}
           </ul>
           <p className="colophon">{m.ministryName}. {new Date().getFullYear()}.</p>

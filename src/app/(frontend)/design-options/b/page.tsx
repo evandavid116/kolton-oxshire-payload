@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { ministry as m, navFor } from '../content'
 
 export const metadata: Metadata = {
@@ -18,36 +19,39 @@ export default function OptionB() {
         <header>
           <p className="banner">{m.gospel}</p>
           <div className="bar">
-            <a className="wordmark" href="/design-options/b">Kolton</a>
+            <Link className="wordmark" href="/design-options/b">Kolton</Link>
             <details className="menu">
               <summary>Menu</summary>
-              <ul className="links">
-                {nav.map((item) => (
-                  <li key={item.href}><a href={item.href}>{item.label}</a></li>
-                ))}
-              </ul>
             </details>
+            <ul className="links">
+              {nav.map((item) => (
+                <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
+              ))}
+            </ul>
           </div>
         </header>
         <section className="hero" id="home">
-          <h1>
-            <span className="fit">Kolton</span>
-            <span className="fit hot">Oxshire</span>
-          </h1>
-          <div>
+          <div className="hero-copy">
+            <h1>
+              <span className="fit">Kolton</span>
+              <span className="fit hot">Oxshire</span>
+            </h1>
             <p className="lede">{m.quote}</p>
             <div className="actions">
-              <a className="btn btn-primary" href="/book-to-speak">Book Kolton</a>
-              <a className="btn btn-line" href="/partner">Partner with us</a>
+              <Link className="btn btn-primary" href="/book-to-speak">Book Kolton</Link>
+              <Link className="btn btn-line" href="/partner">Partner with us</Link>
             </div>
           </div>
+          <figure className="plate hero-plate">
+            <img src={m.portrait} alt={m.portraitAlt} fetchPriority="high" />
+          </figure>
         </section>
       </div>
 
       <section className="about" id="about">
         <div className="wrap split">
           <figure className="plate">
-            <img src={m.portrait} alt={m.portraitAlt} />
+            <img src={m.lion} alt={m.lionAlt} />
           </figure>
           <div>
             <h2>{m.aboutHeading}</h2>
@@ -70,7 +74,7 @@ export default function OptionB() {
             {m.videos.map((video) => (
               <article key={video.embedId}>
                 <h3>{video.title}</h3>
-                <img className="still" src={`https://i.ytimg.com/vi/${video.embedId}/hqdefault.jpg`} alt="" />
+                <img className="still" src={`https://i.ytimg.com/vi/${video.embedId}/hqdefault.jpg`} alt={`Still from ${video.title}`} />
                 <iframe
                   src={`https://www.youtube.com/embed/${video.embedId}`}
                   title={video.title}
@@ -112,8 +116,8 @@ export default function OptionB() {
             ))}
           </ul>
           <div className="actions">
-            <a className="btn btn-primary" href="/partner">Give now</a>
-            <a className="btn btn-line" href="/book-to-speak">Book Kolton</a>
+            <Link className="btn btn-primary" href="/partner">Give now</Link>
+            <Link className="btn btn-line" href="/book-to-speak">Book Kolton</Link>
           </div>
         </div>
       </section>
@@ -123,9 +127,12 @@ export default function OptionB() {
           <p className="colophon">
             {m.contactHeading}. {m.contactSubtext} <a className="mail" href={`mailto:${m.email}`}>{m.email}</a>. {m.ministryName}. {new Date().getFullYear()}.
           </p>
+          <div className="actions">
+            <Link className="btn btn-primary" href="/book-to-speak">Book Kolton</Link>
+          </div>
           <ul className="links foot-links">
             {nav.map((item) => (
-              <li key={item.label}><a href={item.href}>{item.label}</a></li>
+              <li key={item.label}><Link href={item.href}>{item.label}</Link></li>
             ))}
           </ul>
         </div>

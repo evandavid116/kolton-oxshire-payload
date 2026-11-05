@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { ministry as m, navFor } from '../content'
 
 export const metadata: Metadata = {
@@ -16,16 +17,16 @@ export default function OptionC() {
       <link rel="stylesheet" href="/design/c/page.css" />
       <div className="top">
         <header className="edge">
-          <a className="wordmark" href="/design-options/c">Kolton Oxshire</a>
-          <a className="btn btn-primary bar-book" href="/book-to-speak">Book Kolton</a>
+          <Link className="wordmark" href="/design-options/c">Kolton Oxshire</Link>
           <details className="menu">
             <summary>Menu</summary>
-            <ul className="links">
-              {nav.map((item) => (
-                <li key={item.href}><a href={item.href}>{item.label}</a></li>
-              ))}
-            </ul>
           </details>
+          <ul className="links">
+            {nav.map((item) => (
+              <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
+            ))}
+          </ul>
+          <Link className="btn btn-primary bar-book" href="/book-to-speak">Book Kolton</Link>
         </header>
         <section className="hero" id="home">
           <div className="stage">
@@ -36,13 +37,13 @@ export default function OptionC() {
               </h1>
               <p className="lede">{m.quote}</p>
               <div className="actions">
-                <a className="btn btn-primary" href="/book-to-speak">Book Kolton</a>
-                <a className="btn btn-paper" href="/partner">Partner with us</a>
+                <Link className="btn btn-primary" href="/book-to-speak">Book Kolton</Link>
+                <Link className="btn btn-paper" href="/partner">Partner with us</Link>
               </div>
             </div>
             <figure className="sheet">
               <img src={m.portrait} alt={m.portraitAlt} fetchPriority="high" />
-              <a className="slip" href="/book-to-speak">Book Kolton</a>
+              <Link className="slip" href="/book-to-speak">Book Kolton</Link>
             </figure>
           </div>
         </section>
@@ -79,7 +80,7 @@ export default function OptionC() {
             {m.videos.map((video) => (
               <article key={video.embedId} className="sheet video-sheet">
                 <h3>{video.title}</h3>
-                <img className="still" src={`https://i.ytimg.com/vi/${video.embedId}/hqdefault.jpg`} alt="" />
+                <img className="still" src={`https://i.ytimg.com/vi/${video.embedId}/hqdefault.jpg`} alt={`Still from ${video.title}`} />
                 <iframe
                   src={`https://www.youtube.com/embed/${video.embedId}`}
                   title={video.title}
@@ -121,7 +122,7 @@ export default function OptionC() {
               </li>
             ))}
           </ul>
-          <a className="btn btn-primary" href="/partner">Give now</a>
+          <Link className="btn btn-primary" href="/partner">Give now</Link>
         </div>
       </section>
 
@@ -130,9 +131,12 @@ export default function OptionC() {
           <p className="colophon">
             {m.contactHeading}. {m.contactSubtext} <a href={`mailto:${m.email}`}>{m.email}</a>. {m.ministryName}. {new Date().getFullYear()}.
           </p>
+          <div className="actions">
+            <Link className="btn btn-primary" href="/book-to-speak">Book Kolton</Link>
+          </div>
           <ul className="links foot-links">
             {nav.map((item) => (
-              <li key={item.label}><a href={item.href}>{item.label}</a></li>
+              <li key={item.label}><Link href={item.href}>{item.label}</Link></li>
             ))}
           </ul>
         </div>
