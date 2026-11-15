@@ -3,10 +3,12 @@
 The public site is styled after printed tent-revival handbills: very large condensed headlines, one spot colour, hairline rules, numbered sections, square corners. Approved by Evan on 2026-11-14 from the comp in `docs/comp/`.
 
 ## Where things live
-- Tokens (colours, `--gut`, rules): `:root` in `src/app/(frontend)/globals.css`.
-- Component classes: `src/app/(frontend)/handbill.css`. Every class is prefixed `hb-`.
-- Fonts: loaded with `next/font` in `src/app/(frontend)/layout.tsx`, exposed as `--font-archivo` and `--font-instrument`.
-- Home sections: `src/components/home/`. Shell: `src/components/Navbar.tsx`, `src/components/FooterSection.tsx`.
+The redesign sits beside the current build and is served at `/redesign`. The current build (`src/app/(frontend)/`, top-level `src/components/*.tsx`) is not part of this system and must not be edited for it.
+- Routes and root layout: `src/app/(redesign)/`. Fonts are loaded with `next/font` in its `layout.tsx`, exposed as `--font-archivo` and `--font-instrument`.
+- Tokens (colours, `--gut`, rules): `:root` in `src/app/(redesign)/redesign.css`.
+- Component classes: `src/app/(redesign)/handbill.css`. Every class is prefixed `hb-`.
+- Components: `src/components/redesign/` (home sections in `home/`, shell in `Navbar.tsx` and `FooterSection.tsx`). Links between redesign pages use `paths.ts`.
+- Media: `public/redesign/`.
 
 ## Type
 | Role | Face | How |
@@ -37,4 +39,4 @@ Wrap in `.hb-duo` for the ink-on-cream halftone treatment; add `.hb-red-bg` for 
 - One red word per headline, not more.
 - Section headers use `.hb-sec-head`: number slug, condensed heading with an optional serif phrase, right-hand slug.
 - Every interactive element needs a visible `:focus-visible` state (already global in `handbill.css`).
-- Scroll animation is not built yet (Stage 3 of `PLAN.md`). Every section must stay fully readable without it.
+- The Gospel chapter is a pinned film scrubbed by scroll (`GospelFilm.tsx`); under reduced motion it lays its beats out in order. Other scroll animation is not built yet (Stage 4 of `PLAN.md`). Every section must stay fully readable without motion.

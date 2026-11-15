@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { home } from '@/components/redesign/paths'
 
 // New copy for this section is listed in CONTENT-TODO.md for Kolton's approval.
 const PATHS = [
@@ -6,7 +7,7 @@ const PATHS = [
     lines: ['I need', 'Jesus'],
     body: 'Hear the Gospel, start to finish, in about a minute.',
     label: 'The Gospel',
-    href: '/#gospel',
+    href: home('gospel'),
   },
   {
     lines: ['I just', 'got saved'],
@@ -19,7 +20,7 @@ const PATHS = [
     lines: ['I want', 'to grow'],
     body: 'Messages, Bible studies and free resources.',
     label: 'Watch & read',
-    href: '/#watch',
+    href: home('watch'),
   },
   {
     lines: ['Invite', 'Kolton'],

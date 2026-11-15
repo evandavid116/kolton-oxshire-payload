@@ -233,13 +233,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset
 .hb-path{transition:background-color .15s,color .15s}
 .hb-path:hover{background:var(--red);color:var(--cream)}
 .hb-path:hover .hb-red{color:var(--cream)}
-/* Gospel chapter, static form: every beat visible. Stage 3 pins and scrubs this. */
-.hb-g-beats{display:flex;flex-direction:column}
-.hb-g-beats .hb-g-beat{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:44px 0;border-bottom:1px solid var(--rule-inv)}
-.hb-g-beats .hb-g-beat:first-child{padding-top:8px}
-.hb-g-beats .hb-g-beat:last-child{border-bottom:0}
-.hb-g-num{font-size:62px;color:var(--red-on-ink)}
-.hb-g-beat .hb-big{font-size:clamp(50px,8.4vw,121px)}
 .hb-card .hb-duo img.hb-wide-thumb{height:100%;object-position:50% 30%}
 .hb-about .hb-duo img.hb-portrait{left:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .hb-cols p{margin-bottom:1em}
@@ -252,8 +245,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset
   .hb-menu.hb-open{display:block;position:absolute;left:0;right:0;top:100%;background:var(--ink);color:var(--cream);padding:8px var(--gut) 24px}
   .hb-menu a{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--rule-inv);font-stretch:62%;font-weight:900;font-size:34px;line-height:1;text-transform:uppercase}
   .hb-menu a.hb-menu-cta{color:var(--red-on-ink)}
-  .hb-g-beats .hb-g-beat{grid-template-columns:1fr;gap:10px;padding:32px 0}
-  .hb-g-num{font-size:40px}
   .hb-guide-actions .hb-btn{flex:1;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
@@ -278,3 +269,42 @@ a.hb-stamp:hover{background:var(--ink);box-shadow:0 0 0 3px var(--ink),0 0 0 5px
 .hb-footer .hb-btn:hover{background:var(--cream);color:var(--ink)}
 .hb-bk .hb-info{min-width:0}
 @media (max-width:860px){.hb-bk .hb-btn{padding:14px 14px;font-size:14px;letter-spacing:.05em}}
+
+/* ── Gospel film: the section pins and the clip advances with scroll (GospelFilm.tsx) ── */
+.hb-film{padding:0;height:600vh;position:relative}
+.hb-film-stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:var(--ink)}
+/* drawn wider than the stage and pinned left, which moves the film's centred subject to the right of the text */
+.hb-film-stage video{position:absolute;top:0;left:0;width:136%;max-width:none;height:100%;object-fit:cover}
+.hb-film-shade{position:absolute;inset:0;background:rgb(20 19 18 / .42)}
+/* top padding clears the sticky nav, which sits over the stage */
+.hb-film-ui{position:relative;z-index:2;height:100%;padding:112px var(--gut) 44px;display:flex;flex-direction:column;gap:18px}
+.hb-film-head{display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:end}
+.hb-film-head h2{font-size:clamp(32px,4.2vw,60px)}
+.hb-film-head h2 .hb-serif{text-transform:none;font-size:.86em}
+.hb-film-rail{display:flex;gap:8px}
+.hb-film-rail i{flex:1;height:3px;background:rgb(241 234 219 / .3);transition:background-color .3s}
+.hb-film-rail i.hb-on{background:var(--red-on-ink)}
+.hb-film-beats{position:relative;flex:1}
+.hb-film-beat{position:absolute;left:0;right:0;bottom:0;opacity:0;transform:translateY(26px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
+.hb-film-beat.hb-on{opacity:1;transform:none;pointer-events:auto}
+.hb-film-beat .hb-big{font-size:clamp(50px,9.4vw,136px)}
+.hb-film-beat .hb-verse{font-size:clamp(22px,2.8vw,40px);max-width:19em;margin-top:22px;color:var(--cream)}
+.hb-film-beat .hb-ref{margin-top:14px;color:var(--red-on-ink)}
+.hb-film-end{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.hb-film-ready{font-size:clamp(40px,6vw,86px);max-width:12em}
+.hb-film-progress{position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--red);transform:scaleX(0);transform-origin:left;z-index:3}
+@media (max-width:860px){
+  .hb-film-stage video{width:100%}
+  .hb-film-ui{padding:96px var(--gut) 34px}
+  .hb-film-head{grid-template-columns:1fr;gap:6px}
+  .hb-film-hint{display:none}
+}
+/* Reduced motion: nothing pins; the film is a still backdrop and every beat is laid out in order */
+@media (prefers-reduced-motion:reduce){
+  .hb-film{height:auto}
+  .hb-film-stage{position:relative;height:auto}
+  .hb-film-ui{height:auto;padding-top:60px}
+  .hb-film-beats{display:flex;flex-direction:column;gap:56px;padding-top:40px}
+  .hb-film-beat{position:static;opacity:1;transform:none;pointer-events:auto;transition:none}
+  .hb-film-progress,.hb-film-rail{display:none}
+}

@@ -1,81 +1,90 @@
 'use client'
 
 import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { label: 'Start Here', href: '/i-just-got-saved' },
-  { label: 'Watch', href: '/#watch' },
-  { label: 'Books', href: '/#books' },
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/#about' },
+  { label: 'Preaching', href: '/#preaching' },
   { label: 'What We Believe', href: '/what-we-believe' },
-  { label: 'Invite Kolton', href: '/book-to-speak' },
+  { label: 'I Just Got Saved', href: '/i-just-got-saved' },
+  { label: 'Book Kolton', href: '/book-to-speak' },
+  { label: 'Partner', href: '/partner' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
-  // On the home page, anchor links scroll in place instead of reloading the route.
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    setOpen(false)
     if (href.startsWith('/#') && pathname === '/') {
       e.preventDefault()
-      document.getElementById(href.slice(2))?.scrollIntoView({ behavior: 'smooth' })
+      const hash = href.slice(2)
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
+      setOpen(false)
     }
   }
 
+  const linkClass =
+    'font-body text-[11px] font-semibold text-foreground/70 hover:text-accent transition-colors duration-300 tracking-[0.2em] uppercase'
+
   return (
-    <>
-      <div className="hb-strip hb-slug">
-        <Link href="/i-just-got-saved">
-          <b>Free</b> &nbsp;The New Believer&apos;s Guide &rarr;
-        </Link>
-        <span>Kolton Oxshire Ministries</span>
-      </div>
-
-      <nav className="hb-nav" aria-label="Main">
-        <Link href="/" className="hb-mark hb-cond" onClick={() => setOpen(false)}>
-          Kolton Oxshire<span aria-hidden="true">.</span>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
+      <div className="container mx-auto flex items-center justify-between py-5 px-4">
+        <Link
+          href="/"
+          className="font-impact text-2xl text-foreground tracking-tight hover:text-accent transition-colors"
+        >
+          Kolton <span className="italic text-accent">Oxshire</span>
         </Link>
 
-        <ul>
+        <ul className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} onClick={(e) => handleAnchorClick(e, link.href)}>
+              <Link
+                href={link.href}
+                onClick={(e) => handleAnchorClick(e, link.href)}
+                className={linkClass}
+              >
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        <Link href="/partner" className="hb-btn hb-solid">
-          Partner
-        </Link>
-
         <button
-          type="button"
-          className="hb-burger"
+          className="lg:hidden text-foreground"
           onClick={() => setOpen(!open)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-        />
+          aria-label="Toggle menu"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
-        <div id="mobile-menu" className={open ? 'hb-menu hb-open' : 'hb-menu'}>
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} onClick={(e) => handleAnchorClick(e, link.href)}>
-              <span>{link.label}</span>
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          ))}
-          <Link href="/partner" className="hb-menu-cta" onClick={() => setOpen(false)}>
-            <span>Partner</span>
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
+      {open && (
+        <div className="lg:hidden bg-background/95 backdrop-blur-md border-b border-border">
+          <ul className="flex flex-col items-center gap-6 py-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={(e) => {
+                    handleAnchorClick(e, link.href)
+                    setOpen(false)
+                  }}
+                  className={linkClass}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </nav>
-    </>
+      )}
+    </nav>
   )
 }

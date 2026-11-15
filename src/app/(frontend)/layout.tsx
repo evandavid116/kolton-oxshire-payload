@@ -1,27 +1,7 @@
 import type { Metadata } from 'next'
-import { Archivo, Instrument_Serif } from 'next/font/google'
 import React from 'react'
 
 import './globals.css'
-import './handbill.css'
-
-// Display + text: Archivo variable, with the width axis so headlines can run condensed or wide.
-const archivo = Archivo({
-  subsets: ['latin'],
-  axes: ['wdth'],
-  style: ['normal', 'italic'],
-  variable: '--font-archivo',
-  display: 'swap',
-})
-
-// Voice: Scripture and Kolton's quotes.
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
-  variable: '--font-instrument',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://koltonoxshire.com'),
@@ -43,8 +23,10 @@ export const metadata: Metadata = {
 
 export default function FrontendLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${instrumentSerif.variable}`}>
+    <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
       </head>
       <body>{children}</body>

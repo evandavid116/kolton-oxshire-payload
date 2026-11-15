@@ -62,6 +62,15 @@
         ],
         "createdAt": "2026-11-15T06:55:23.060Z",
         "reason": "Claude: false positive, the flagged border draws the CSS triangle inside the play button, not a card side stripe"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/app/(redesign)/handbill.css"
+        ],
+        "createdAt": "2026-11-15T08:11:24.232Z",
+        "reason": "Claude: false positive, the flagged border draws the CSS triangle inside the play button, not a card side stripe"
       }
     ]
   }

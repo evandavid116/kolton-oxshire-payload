@@ -21,8 +21,9 @@ Rebuild of koltonoxshire.com (Kolton Oxshire Ministries) on the official Payload
 - Never edit `src/payload-types.ts` or the admin importMap — generated.
 - Secrets stay in env vars — never write a real key into any file.
 
-# Design
-- The public site uses the Revival Handbill system: read `DESIGN.md` before any UI work. Classes are `hb-*` in `src/app/(frontend)/handbill.css`; tokens are in `globals.css`. Don't reintroduce Inter or the old stock-photo dividers.
+# Two designs in this repo
+- **Current build** (parity with the live Sanity site): `src/app/(frontend)/` and the top-level files in `src/components/`. Served at `/`. Leave it alone unless asked.
+- **Redesign** (Revival Handbill): `src/app/(redesign)/`, `src/components/redesign/`, `public/redesign/`. Served at `/redesign`, with its own root layout and CSS, set to noindex. Read `DESIGN.md` before any UI work there. Classes are `hb-*` in `handbill.css`; tokens are in `redesign.css`.
 - The rebuild is tracked in `PLAN.md` (stages, what's done, what's next) and `CONTENT-TODO.md` (what copy and assets exist vs. are still needed from the client).
 
 # Gotchas

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { HeroSection as HeroSectionType } from '@/types/globals'
+import { home } from '@/components/redesign/paths'
 
 type Props = {
   data: HeroSectionType
@@ -45,10 +46,10 @@ export default function Hero({ data, portraitUrl }: Props) {
           <div className="hb-hero-foot">
             <p className="hb-serif">{description}</p>
             <div className="hb-cta">
-              <Link className="hb-btn hb-solid" href="/#gospel">
+              <Link className="hb-btn hb-solid" href={home('gospel')}>
                 Hear the Gospel <i aria-hidden="true">&darr;</i>
               </Link>
-              <Link className="hb-btn" href="/#watch">
+              <Link className="hb-btn" href={home('watch')}>
                 Watch Messages
               </Link>
             </div>
