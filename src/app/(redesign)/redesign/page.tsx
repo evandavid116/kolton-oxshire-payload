@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import type {
@@ -23,10 +22,6 @@ import ScriptureBreak from '@/components/redesign/home/ScriptureBreak'
 import About from '@/components/redesign/home/About'
 import Books from '@/components/redesign/home/Books'
 import InvitePartner from '@/components/redesign/home/InvitePartner'
-
-export const metadata: Metadata = {
-  title: 'Kolton Oxshire Ministries — Redesign preview',
-}
 
 export default async function RedesignHomePage() {
   const payload = await getPayload({ config: configPromise })
