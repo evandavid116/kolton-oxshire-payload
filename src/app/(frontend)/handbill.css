@@ -1,0 +1,280 @@
+/* Revival Handbill design system — component classes for the public site.
+   Tokens (--cream, --ink, --red, --gut, ...) are defined in globals.css.
+   Ported from the approved comp in docs/comp/home-comp.html. See DESIGN.md. */
+.hb-wrap{padding-inline:var(--gut)}
+.hb-cond{font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:-.01em}
+.hb-wide{font-stretch:125%;font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:-.035em}
+.hb-serif{font-family:var(--font-instrument),Georgia,serif;font-style:italic;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+.hb-slug{font-stretch:88%;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;line-height:1.5}
+.hb-red{color:var(--red)}
+.hb-gospel .hb-red,.hb-invite .hb-red,footer .hb-red,.hb-card.hb-more .hb-red,.hb-path:first-child .hb-red,.hb-tag .hb-red{color:var(--red-on-ink)}
+.hb-btn{display:inline-flex;align-items:center;gap:.7em;font-stretch:80%;font-weight:800;font-size:16px;letter-spacing:.08em;text-transform:uppercase;padding:18px 26px;border:2px solid var(--ink);white-space:nowrap}
+.hb-btn.hb-solid{background:var(--red);border-color:var(--red);color:var(--cream)}
+.hb-btn.hb-ink{background:var(--ink);color:var(--cream)}
+.hb-btn.hb-inv{border-color:var(--cream);color:var(--cream)}
+.hb-btn i{font-style:normal;font-size:1.15em;line-height:1}
+
+/* duotone photo */
+.hb-duo{position:relative;background:var(--cream);overflow:hidden}
+.hb-duo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.45) brightness(1.08);mix-blend-mode:multiply}
+.hb-duo::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(20,19,18,.75) 1px,transparent 1.5px);background-size:5px 5px;mix-blend-mode:multiply;opacity:.28;pointer-events:none}
+.hb-duo.hb-red-bg{background:var(--red)}
+.hb-duo.hb-inv{background:#2a2826}
+.hb-duo.hb-inv img{mix-blend-mode:screen;filter:grayscale(1) contrast(1.5) brightness(.95)}
+.hb-duo.hb-inv::after{opacity:.5}
+
+/* top strip + nav */
+.hb-strip{background:var(--ink);color:var(--cream);display:flex;justify-content:space-between;gap:20px;padding:9px var(--gut)}
+.hb-strip b{color:var(--red-on-ink);font-weight:700}
+.hb-nav{display:flex;align-items:center;justify-content:space-between;padding:18px var(--gut);border-bottom:1px solid var(--rule)}
+.hb-mark{font-size:30px;line-height:1}
+.hb-mark span{color:var(--red)}
+.hb-nav ul{display:flex;gap:34px;list-style:none}
+.hb-nav li{font-stretch:88%;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.hb-nav .hb-btn{padding:12px 20px;font-size:14px}
+.hb-burger{display:none;width:30px;height:16px;border-block:3px solid var(--ink)}
+
+/* hero */
+.hb-hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);border-bottom:1px solid var(--rule)}
+.hb-hero-l{padding:38px var(--gut) 40px;display:flex;flex-direction:column;justify-content:space-between;gap:34px;border-right:1px solid var(--rule)}
+.hb-hero-meta{display:flex;justify-content:space-between;gap:16px}
+.hb-hero h1{container-type:inline-size}
+.hb-h-pre{font-size:8cqw;margin-bottom:.14em}
+.hb-h-main{font-size:20.4cqw;white-space:nowrap}
+.hb-h-jesus{font-size:19.9cqw;color:var(--red);margin-top:.04em;white-space:nowrap}
+.hb-hero-foot{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;border-top:1px solid var(--rule);padding-top:26px}
+.hb-hero-foot p{font-size:25px;max-width:22em}
+.hb-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hb-hero-r{position:relative;min-height:640px}
+.hb-hero-r .hb-duo{position:absolute;inset:0}
+.hb-hero-r .hb-duo img{object-position:50% 22%}
+.hb-tag{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--cream);padding:14px 18px;max-width:78%}
+.hb-tag .hb-serif{font-size:25px;display:block;margin-top:4px}
+.hb-stamp{position:absolute;top:26px;right:26px;width:128px;height:128px;border-radius:50%;background:var(--red);color:var(--cream);display:grid;place-items:center;text-align:center;transform:rotate(11deg);font-stretch:70%;font-weight:900;font-size:19px;line-height:.95;text-transform:uppercase;letter-spacing:.03em;box-shadow:0 0 0 3px var(--red),0 0 0 5px var(--cream),0 0 0 7px var(--red)}
+
+/* ticker */
+.hb-ticker{background:var(--red);color:var(--cream);white-space:nowrap;overflow:hidden;padding:13px 0;font-size:25px}
+.hb-ticker span{display:inline-block;padding-right:.9em}
+.hb-ticker em{font-family:var(--font-instrument),Georgia,serif;font-style:italic;font-weight:400;text-transform:none;font-stretch:100%;letter-spacing:0;font-size:1.12em}
+
+/* section head */
+.hb-sec{padding:74px var(--gut) 84px}
+.hb-sec-head{display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:end;border-bottom:2px solid currentColor;padding-bottom:20px;margin-bottom:40px}
+.hb-no{font-size:16px}
+.hb-sec-head h2{font-size:clamp(46px,6.6vw,96px)}
+.hb-sec-head h2 .hb-serif{text-transform:none;font-size:.82em;letter-spacing:-.02em}
+
+/* paths */
+.hb-paths{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink)}
+.hb-path{padding:26px 24px 24px;border-right:2px solid var(--ink);min-height:290px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+.hb-path:last-child{border-right:0}
+.hb-path:first-child{background:var(--ink);color:var(--cream)}
+.hb-path h3{font-size:50px}
+.hb-path p{font-size:16px;max-width:17em}
+.hb-path .hb-go{font-stretch:80%;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;border-top:1px solid currentColor;padding-top:13px}
+
+/* gospel */
+.hb-gospel{background:var(--ink);color:var(--cream);padding:80px var(--gut) 86px;position:relative}
+.hb-gospel .hb-sec-head{border-color:var(--cream)}
+.hb-g-grid{display:grid;grid-template-columns:150px minmax(0,1fr) 300px;gap:24px}
+.hb-g-rail{display:flex;flex-direction:column;gap:13px}
+.hb-g-rail div{display:flex;align-items:center;gap:12px;opacity:.62}
+.hb-g-rail div.hb-on{opacity:1}
+.hb-g-rail div::before{content:"";width:34px;height:2px;background:var(--cream)}
+.hb-g-rail div.hb-on::before{width:62px;height:5px;background:var(--red)}
+.hb-g-beat .hb-big{font-size:clamp(62px,10.6vw,152px)}
+.hb-g-beat .hb-verse{font-size:clamp(28px,3vw,43px);max-width:17em;margin-top:28px;color:rgba(241,234,219,.9)}
+.hb-g-beat .hb-ref{margin-top:16px;color:var(--red-on-ink)}
+.hb-g-next{display:flex;flex-direction:column;border-top:1px solid var(--rule-inv)}
+.hb-g-next div{padding:17px 0;border-bottom:1px solid var(--rule-inv)}
+.hb-g-next b{display:block;font-size:27px;margin-top:5px}
+.hb-g-next .hb-dim{opacity:.62}
+.hb-g-end{margin-top:54px;padding-top:30px;border-top:2px solid var(--cream);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.hb-g-end .hb-serif{font-size:35px}
+.hb-note{font-size:13px;opacity:.72;margin-top:18px}
+
+/* reel */
+.hb-reel{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+.hb-card{border:2px solid var(--ink);display:flex;flex-direction:column;background:var(--cream)}
+.hb-card .hb-duo{aspect-ratio:1/1.02}
+.hb-card .hb-duo img{object-position:50% 0;height:185%}
+.hb-card .hb-play{position:absolute;left:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:var(--red);display:grid;place-items:center;z-index:2}
+.hb-card .hb-play::after{content:"";border-left:16px solid var(--cream);border-block:10px solid transparent;margin-left:4px}
+.hb-card .hb-body{padding:15px 15px 16px;border-top:2px solid var(--ink);display:flex;flex-direction:column;gap:9px;flex:1}
+.hb-card h3{font-size:31px}
+.hb-card.hb-more{background:var(--ink);color:var(--cream);justify-content:space-between;padding:20px}
+.hb-card.hb-more h3{font-size:50px}
+.hb-topics{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}
+.hb-topics span{border:1.5px solid var(--ink);padding:8px 13px;font-stretch:85%;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.hb-topics span:first-child{background:var(--ink);color:var(--cream)}
+
+/* guide */
+.hb-guide{background:var(--red);color:var(--cream);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);position:relative}
+.hb-guide-l{padding:70px var(--gut);display:grid;place-items:center;border-right:1px solid rgba(241,234,219,.35)}
+.hb-book{width:min(310px,74%);aspect-ratio:8.5/11;background:var(--cream);color:var(--ink);padding:24px 22px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-4deg);box-shadow:14px 14px 0 var(--ink)}
+.hb-book h4{font-size:61px}
+.hb-book .hb-serif{font-size:22px}
+.hb-guide-r{padding:70px var(--gut) 74px;display:flex;flex-direction:column;gap:24px;justify-content:center}
+.hb-guide-r h2{font-size:clamp(54px,7.5vw,108px)}
+.hb-guide-r p{font-size:20px;max-width:26em}
+.hb-form{display:flex;border:2px solid var(--cream);max-width:640px}
+.hb-form span{flex:1;padding:18px 20px;font-size:17px}
+.hb-form b{background:var(--ink);color:var(--cream);padding:18px 24px;font-stretch:80%;font-weight:800;font-size:16px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.hb-guide .hb-stamp{background:var(--cream);color:var(--red);box-shadow:0 0 0 3px var(--cream),0 0 0 5px var(--red),0 0 0 7px var(--cream);top:-44px;right:var(--gut)}
+
+/* scripture */
+.hb-verse-break{padding:110px var(--gut);text-align:center;border-block:1px solid var(--rule)}
+.hb-verse-break p{font-size:clamp(46px,7.3vw,105px);max-width:11.5em;margin:0 auto}
+.hb-verse-break .hb-slug{margin-top:30px;display:block}
+
+/* about */
+.hb-about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid var(--rule)}
+.hb-about .hb-duo{min-height:640px}
+/* Vertical message frames are zoomed so burned-in captions (lower half of the frame) stay out of view */
+.hb-about .hb-duo img{position:absolute;top:0;left:-19%;width:138%;max-width:none;height:auto}
+.hb-about-r{padding:74px var(--gut) 80px;display:flex;flex-direction:column;gap:26px}
+.hb-about-r h2{font-size:clamp(54px,7.3vw,105px)}
+.hb-cols{columns:2;column-gap:34px;font-size:17px}
+.hb-cols p{margin-bottom:1em;break-inside:avoid}
+
+/* books */
+.hb-books{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.hb-bk{border:2px solid var(--ink);display:grid;grid-template-columns:190px 1fr}
+.hb-bk .hb-cover{background:var(--paper);border-right:2px solid var(--ink);padding:20px;display:grid;place-items:center}
+.hb-bk .hb-cover img{box-shadow:7px 7px 0 var(--ink);width:150px}
+.hb-bk .hb-info{padding:22px;display:flex;flex-direction:column;gap:11px;justify-content:space-between}
+.hb-bk h3{font-size:44px}
+
+/* split */
+.hb-split{display:grid;grid-template-columns:1fr 1fr}
+.hb-split>div{padding:74px var(--gut) 78px;display:flex;flex-direction:column;gap:24px;justify-content:space-between;min-height:520px}
+.hb-invite{background:var(--ink);color:var(--cream)}
+.hb-partner{background:var(--paper);border-top:1px solid var(--rule)}
+.hb-split h2{font-size:clamp(50px,5.9vw,85px)}
+.hb-split p{font-size:19px;max-width:24em}
+.hb-stub{display:grid;grid-template-columns:1fr 1fr 1fr;border:1.5px dashed var(--rule-inv)}
+.hb-stub div{padding:13px 15px;border-right:1.5px dashed var(--rule-inv)}
+.hb-stub div:last-child{border:0}
+.hb-stub b{display:block;font-size:25px;margin-top:4px}
+.hb-amts{display:flex;gap:9px;flex-wrap:wrap}
+.hb-amts span{border:2px solid var(--ink);padding:12px 18px;font-size:27px}
+.hb-amts span.hb-on{background:var(--ink);color:var(--cream)}
+
+/* footer */
+.hb-footer{background:var(--ink);color:var(--cream);padding:66px var(--gut) 30px;border-top:1px solid var(--rule-inv)}
+.hb-f-top{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.55fr));gap:34px;padding-bottom:50px}
+.hb-f-top h3{font-family:inherit;font-stretch:88%;font-weight:600;line-height:1.5;margin-bottom:15px;color:var(--red-on-ink)}
+.hb-f-top li{list-style:none;margin-bottom:8px;font-size:16px}
+.hb-f-top .hb-serif{font-size:38px;max-width:13em;margin-bottom:22px}
+.hb-f-top .hb-form{max-width:480px}
+.hb-f-word{font-size:clamp(48px,14.1vw,203px);border-top:2px solid var(--cream);padding-top:20px;white-space:nowrap}
+.hb-f-bot{display:flex;justify-content:space-between;gap:20px;margin-top:16px;opacity:.75;flex-wrap:wrap}
+
+@media (max-width:1150px){.hb-hero-foot{grid-template-columns:1fr;gap:20px}.hb-hero-meta span:last-child{display:none}}
+@media (max-width:860px){
+  body{font-size:16px}
+  .hb-strip span:last-child,.hb-nav ul,.hb-nav .hb-btn{display:none}
+  .hb-burger{display:block}
+  .hb-hero,.hb-guide,.hb-about,.hb-split,.hb-books{grid-template-columns:1fr}
+  .hb-hero-l{border-right:0;padding-block:24px 26px;gap:24px}
+  .hb-hero-meta span:last-child{display:none}
+  .hb-hero-foot{grid-template-columns:1fr;gap:20px;padding-top:20px}
+  .hb-hero-foot p{font-size:23px}
+  .hb-cta .hb-btn{flex:1;justify-content:center;padding:17px 12px;font-size:15px}
+  .hb-hero-r{min-height:430px}
+  .hb-stamp{width:98px;height:98px;font-size:15px;top:16px;right:16px}
+  .hb-ticker{font-size:19px;padding:10px 0}
+  .hb-sec{padding:50px var(--gut) 56px}
+  .hb-sec-head{grid-template-columns:1fr;gap:9px;margin-bottom:26px;padding-bottom:15px}
+  .hb-sec-head>.hb-slug:last-child{display:none}
+  .hb-paths{grid-template-columns:1fr}
+  .hb-path{border-right:0;border-bottom:2px solid var(--ink);min-height:0;gap:13px;padding:20px 18px}
+  .hb-path:last-child{border-bottom:0}
+  .hb-path h3{font-size:44px}
+  .hb-gospel{padding:54px var(--gut) 58px}
+  .hb-g-grid{grid-template-columns:1fr;gap:26px}
+  .hb-g-rail{flex-direction:row;gap:8px}
+  .hb-g-rail div{font-size:0;gap:0;flex:1}
+  .hb-g-rail div::before,.hb-g-rail div.hb-on::before{width:100%}
+  .hb-g-end .hb-serif{font-size:29px}
+  .hb-g-end .hb-btn{width:100%;justify-content:center}
+  .hb-reel{grid-template-columns:repeat(5,74vw);overflow:hidden;gap:13px;margin-right:calc(var(--gut)*-1)}
+  .hb-guide-l{border-right:0;padding:54px var(--gut) 16px}
+  .hb-book h4{font-size:48px}
+  .hb-guide-r{padding:34px var(--gut) 56px}
+  .hb-guide .hb-stamp{top:-30px}
+  .hb-form{flex-direction:column}
+  .hb-form b{text-align:center}
+  .hb-verse-break{padding:70px var(--gut)}
+  .hb-about .hb-duo{min-height:430px}
+  .hb-about-r{padding:46px var(--gut) 54px}
+  .hb-cols{columns:1}
+  .hb-bk{grid-template-columns:128px 1fr}
+  .hb-bk .hb-cover{padding:13px}.hb-bk .hb-cover img{width:98px}
+  .hb-bk h3{font-size:33px}
+  .hb-split>div{padding:50px var(--gut) 54px;min-height:0}
+  .hb-f-top{grid-template-columns:1fr 1fr;gap:28px}
+  .hb-f-top>div:first-child{grid-column:1/-1}
+}
+
+/* ── Real-site additions (not in the static comp) ───────────────────────── */
+.hb-nav{position:sticky;top:0;z-index:50;background:var(--cream)}
+.hb-nav li a:hover,.hb-nav .hb-mark:hover{color:var(--red)}
+.hb-footer a:hover,.hb-menu a:hover,.hb-strip a:hover{color:var(--red-on-ink)}
+.hb-btn{transition:background-color .15s,color .15s,border-color .15s;cursor:pointer}
+.hb-btn:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.hb-btn.hb-solid:hover{background:var(--ink);border-color:var(--ink)}
+.hb-invite .hb-btn.hb-solid:hover,.hb-gospel .hb-btn.hb-solid:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+.hb-btn.hb-ink:hover{background:var(--red);border-color:var(--red)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.hb-gospel a:focus-visible,.hb-invite a:focus-visible,.hb-footer a:focus-visible{outline-color:var(--cream)}
+.hb-burger{background:none;padding:0;cursor:pointer}
+.hb-menu{display:none}
+.hb-path{transition:background-color .15s,color .15s}
+.hb-path:hover{background:var(--red);color:var(--cream)}
+.hb-path:hover .hb-red{color:var(--cream)}
+/* Gospel chapter, static form: every beat visible. Stage 3 pins and scrubs this. */
+.hb-g-beats{display:flex;flex-direction:column}
+.hb-g-beats .hb-g-beat{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:44px 0;border-bottom:1px solid var(--rule-inv)}
+.hb-g-beats .hb-g-beat:first-child{padding-top:8px}
+.hb-g-beats .hb-g-beat:last-child{border-bottom:0}
+.hb-g-num{font-size:62px;color:var(--red-on-ink)}
+.hb-g-beat .hb-big{font-size:clamp(50px,8.4vw,121px)}
+.hb-card .hb-duo img.hb-wide-thumb{height:100%;object-position:50% 30%}
+.hb-about .hb-duo img.hb-portrait{left:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.hb-cols p{margin-bottom:1em}
+.hb-guide-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hb-guide .hb-btn{border-color:var(--cream);color:var(--cream)}
+.hb-guide .hb-btn.hb-ink{border-color:var(--ink)}
+.hb-guide .hb-btn:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+.hb-sublines{display:flex;flex-direction:column}
+@media (max-width:860px){
+  .hb-menu.hb-open{display:block;position:absolute;left:0;right:0;top:100%;background:var(--ink);color:var(--cream);padding:8px var(--gut) 24px}
+  .hb-menu a{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--rule-inv);font-stretch:62%;font-weight:900;font-size:34px;line-height:1;text-transform:uppercase}
+  .hb-menu a.hb-menu-cta{color:var(--red-on-ink)}
+  .hb-g-beats .hb-g-beat{grid-template-columns:1fr;gap:10px;padding:32px 0}
+  .hb-g-num{font-size:40px}
+  .hb-guide-actions .hb-btn{flex:1;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .hb-btn,.hb-path{transition:none}
+}
+/* Message reel: the last "more" card fills whatever columns the videos leave free */
+.hb-card.hb-more{grid-column:span var(--more-span,1)}
+@media (max-width:860px){
+  .hb-reel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-right:var(--gut);scrollbar-width:none}
+  .hb-reel::-webkit-scrollbar{display:none}
+  .hb-reel .hb-card{flex:0 0 74vw;scroll-snap-align:start}
+  .hb-reel .hb-card.hb-more{min-height:300px}
+}
+.hb-book-title{font-size:61px}
+.hb-stamp{text-decoration:none}
+a.hb-stamp:hover{background:var(--ink);box-shadow:0 0 0 3px var(--ink),0 0 0 5px var(--cream),0 0 0 7px var(--ink)}
+@media (max-width:860px){.hb-book-title{font-size:48px}}
+.hb-contact{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.hb-contact h2{font-size:44px}
+.hb-contact p{max-width:26em;white-space:pre-line;opacity:.85}
+.hb-footer .hb-btn{border-color:var(--cream);color:var(--cream)}
+.hb-footer .hb-btn:hover{background:var(--cream);color:var(--ink)}
+.hb-bk .hb-info{min-width:0}
+@media (max-width:860px){.hb-bk .hb-btn{padding:14px 14px;font-size:14px;letter-spacing:.05em}}

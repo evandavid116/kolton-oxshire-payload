@@ -1,0 +1,68 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "docs/comp/home-comp.html"
+        ],
+        "createdAt": "2026-11-15T01:00:51.262Z",
+        "reason": "Claude: false positive, flagged containers are inset with padding var(--gut) the detector does not resolve; ticker is an intentional full-bleed marquee"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "docs/comp/home-comp.html"
+        ],
+        "createdAt": "2026-11-15T01:00:51.281Z",
+        "reason": "Claude: intentional, flagged text is display-size condensed headlines and large serif pull quotes; body copy is 1.5"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "docs/comp/home-comp.html"
+        ],
+        "createdAt": "2026-11-15T01:00:51.299Z",
+        "reason": "Claude: cream ground is the client's existing brand colour (sanity-site/src/index.css --cream)"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "docs/comp/tent-revival-comp.html"
+        ],
+        "createdAt": "2026-11-15T06:43:04.543Z",
+        "reason": "Claude: intentional, flagged text is display-size condensed headlines and large serif pull quotes copied from the deployed mockup; body copy is 1.5"
+      },
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "createdAt": "2026-11-15T06:43:04.559Z",
+        "reason": "Claude: Instrument Serif is the Scripture/quote face named in PLAN.md's Revival Handbill direction and used in the deployed mockup"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "docs/comp/home-comp.html"
+        ],
+        "createdAt": "2026-11-15T06:43:20.778Z",
+        "reason": "user confirmed: keep Instrument Serif for Scripture and quotes (2026-11-14)"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/app/(frontend)/handbill.css"
+        ],
+        "createdAt": "2026-11-15T06:55:23.060Z",
+        "reason": "Claude: false positive, the flagged border draws the CSS triangle inside the play button, not a card side stripe"
+      }
+    ]
+  }
+}
